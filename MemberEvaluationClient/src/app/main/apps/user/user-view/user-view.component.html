@@ -1,0 +1,123 @@
+
+<div class="content-wrapper container-xxl p-0">
+  <div class="content-body">
+    <section class="app-user-view">
+      <div class="row">
+        <div class="col-12">
+          <div class="card user-card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-xl-6 col-lg-12 d-flex flex-column justify-content-between border-container-lg">
+                  <div class="user-avatar-section">
+                    <div class="d-flex justify-content-start">
+                      
+                      <div class="d-flex flex-column ml-1">
+                        <div class="user-info mb-1">
+                          <h4 class="mb-0">{{ data.fullName }}</h4>
+                          <span class="card-text">{{ data.email }}</span>
+                        </div>
+                        <div class="d-flex flex-wrap">
+                          <a routerLink="/apps/user/user-edit/{{ data.id }}" class="btn btn-primary" rippleEffect
+                            >Edit</a
+                          >
+                          <button class="btn btn-outline-danger ml-1" rippleEffect>Delete</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-12 mt-2 mt-xl-0">
+                  <div class="user-info-wrapper">
+                    <div class="d-flex flex-wrap">
+                      <div class="user-info-title">
+                        <i data-feather="user" class="mr-1"></i>
+                        <span class="card-text user-info-title font-weight-bold mb-0">User ID</span>
+                      </div>
+                      <p class="card-text mb-0">{{ data.userId }}</p>
+                    </div>
+                    <div class="d-flex flex-wrap my-50">
+                      <div class="user-info-title">
+                        <i data-feather="check" class="mr-1"></i>
+                        <span class="card-text user-info-title font-weight-bold mb-0">Status</span>
+                      </div>
+                      <p class="card-text mb-0">{{ data.status }}</p>
+                    </div>
+                    <div class="d-flex flex-wrap my-50">
+                      <div class="user-info-title">
+                        <i data-feather="star" class="mr-1"></i>
+                        <span class="card-text user-info-title font-weight-bold mb-0">Role</span>
+                      </div>
+                      <p class="card-text mb-0">{{ data.userRole }}</p>
+                    </div>
+                    <div class="d-flex flex-wrap my-50">
+                      <div class="user-info-title">
+                        <i data-feather="check" class="mr-1"></i>
+                        <span class="card-text user-info-title font-weight-bold mb-0">Department</span>
+                      </div>
+                      <p class="card-text mb-0">{{ data.department }}</p>
+                    </div>
+                    <div class="d-flex flex-wrap">
+                      <div class="user-info-title">
+                        <i data-feather="phone" class="mr-1"></i>
+                        <span class="card-text user-info-title font-weight-bold mb-0">Contact</span>
+                      </div>
+                      <p class="card-text mb-0">{{ data.contact }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+      <div class="card">
+        <div class="row">
+          <div class="col-md-6 col-12">
+            <div class="d-flex justify-content-between align-items-center m-1">
+              <label class="d-flex align-items-center"
+                >Show
+                <select class="form-control mx-25" >
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                </select>
+                entries</label
+              >
+            </div>
+          </div>
+          <div class="col-md-6 col-12 d-flex justify-content-start justify-content-md-end">
+            <div class="d-flex align-items-center justify-content-end pr-1 pb-1 pb-md-0">
+              <label class="d-flex align-items-center ml-1 ml-md-0"
+                >Search:<input
+                  type="search"
+                  class="form-control ml-25"
+              /></label>
+            </div>
+          </div>
+        </div>
+        <ngx-datatable
+          [rows]="rows"
+          [rowHeight]="50"
+          class="bootstrap core-bootstrap"
+          [columnMode]="ColumnMode.force"
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [scrollbarH]="true"
+        >
+        <ngx-datatable-column name="Date" prop="create_at" [width]="150"></ngx-datatable-column>
+        
+        <ngx-datatable-column name="Title" prop="title" [width]="200"></ngx-datatable-column>
+        <ngx-datatable-column name="Level" prop="level" [width]="100"></ngx-datatable-column>
+        <ngx-datatable-column name="Grade" prop="grade" [width]="90"></ngx-datatable-column>
+        <ngx-datatable-column name="Reason" prop="reason" [width]="230"></ngx-datatable-column>
+        <ngx-datatable-column name="Comment" prop="comment" [width]="230"></ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+       
+    
+    </section>
+   
+  </div>
+</div>

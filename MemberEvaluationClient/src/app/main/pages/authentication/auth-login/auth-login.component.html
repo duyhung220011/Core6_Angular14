@@ -1,0 +1,107 @@
+<div class="auth-wrapper auth-v1 px-2">
+  <div class="auth-inner py-2">
+    <!-- Login v1 -->
+    <div class="card mb-0">
+      <div class="card-body">
+        <a href="javascript:void(0);" class="brand-logo">
+          <img src="assets/images/logo/logo.png" alt="brand-logo" height="32" />
+        </a>
+
+        <h2 class="brand-text text-primary mb-1">Member Evaluation</h2>
+        <p class="card-text mb-2">Please sign-in to your account</p>
+
+        <form class="auth-login-form mt-2" [formGroup]="loginForm" (ngSubmit)="login()">
+          <!-- <div class="form-group">
+            <label for="login-email" class="form-label">User ID</label>
+            <input
+              type="text"
+              formControlName="userId"
+              class="form-control"
+              placeholder="100000"
+              aria-describedby="login-user"
+              tabindex="1"
+              autofocus
+              [ngClass]="{ 'is-invalid': submitted && f.userId.errors }"
+            />
+            <div *ngIf="submitted && f.userId.errors" class="invalid-feedback">
+              <div *ngIf="f.userId.errors.required">Email is required</div>
+            </div>
+          </div> -->
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input
+              class="form-control form-control-user"
+              type="username"
+              formControlName="username"
+              placeholder="Username"
+              [ngClass]="{'is-invalid': submitted && loginForm.get('username').invalid }"
+              name="username"
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && loginForm.get('username').invalid"
+            >
+              <div *ngIf="loginForm.get('username').errors['required']">
+                * Required
+              </div>
+              <div
+                *ngIf=" loginForm.get('username').errors['serverValidationError'] "
+              >
+                {{loginForm.controls["username"].errors.serverValidationError}}
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="d-flex justify-content-between">
+              <label for="login-password">Password</label>
+              <a routerLink="/pages/authentication/forgot-password-v1">
+                <small>Forgot Password?</small>
+              </a>
+            </div>
+            <div class="input-group input-group-merge form-password-toggle">
+              <input
+                [type]="passwordTextType ? 'text' : 'password'"
+                formControlName="password"
+                class="form-control form-control-merge"
+                tabindex="2"
+                placeholder="·········"
+                aria-describedby="login-password"
+                [ngClass]="{ 'is-invalid error': submitted && f.password.errors }"
+              />
+
+              <div class="input-group-append">
+                <span class="input-group-text cursor-pointer"
+                  ><i
+                    class="feather font-small-4"
+                    [ngClass]="{
+                      'icon-eye-off': passwordTextType,
+                      'icon-eye': !passwordTextType
+                    }"
+                    (click)="togglePasswordTextType()"
+                  ></i
+                ></span>
+              </div>
+            </div>
+            <div
+              *ngIf="submitted && f.password.errors"
+              class="invalid-feedback"
+              [ngClass]="{ 'd-block': submitted && f.password.errors }"
+            >
+              <div *ngIf="f.password.errors.required">Password is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="custom-control custom-checkbox">
+              <input class="custom-control-input" type="checkbox" id="remember-me" tabindex="3" />
+              <label class="custom-control-label" for="remember-me"> Remember Me </label>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-block" tabindex="4" rippleEffect>Sign in</button>
+        </form>
+
+      </div>
+    </div>
+    <!-- /Login v1 -->
+  </div>
+</div>

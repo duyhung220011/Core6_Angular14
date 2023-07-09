@@ -1,0 +1,166 @@
+<div class="content-wrapper container-xxl p-0">
+  <div class="content-body">
+    <!-- users edit start -->
+    <section class="app-user-edit">
+      <div class="card">
+        <div class="card-body">
+          <ul ngbNav #nav="ngbNav" class="nav nav-pills">
+            <li ngbNavItem>
+              <a ngbNavLink class="d-flex align-items-center"
+                ><i data-feather="user" class="mr-sm-50"></i><span class="d-none d-sm-block">SKILL</span></a
+              >
+              <ng-template ngbNavContent>
+                <!-- Account Tab starts -->
+                <div class="tab-pane active" id="account" aria-labelledby="account-tab" role="tabpanel">
+                  
+                  <!-- users edit media object ends -->
+                  <!-- users edit account form start -->
+                  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+                    <div class="row">
+                      <div class="col-12">
+                        <h4 class="mb-1">
+                          <i data-feather="info" [size]="16" class="mr-75 font-medium-4"></i>
+                          <span class="align-middle">Skill</span>
+                        </h4>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="skillId">Skill ID</label>
+                          <input
+                            type="text"
+                            id="skillId"
+                            class="form-control"
+                            placeholder="Skill ID"
+                            name="skillId"
+                            formControlName="skillId"
+                            [(ngModel)]="currentRow.skillId"
+                            [ngClass]="{ 'is-invalid': submitted && form.skillId.errors }"
+                            required
+                          />
+                          <span *ngIf="submitted && form.skillId.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="form.skillId.errors.required"
+                              >This field is required!</small
+                            >
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="title">Title</label>
+                          <input
+                            type="text"
+                            id="title"
+                            class="form-control"
+                            placeholder="Title"
+                            name="title"
+                            formControlName="title"
+                            [(ngModel)]="currentRow.title"
+                            [ngClass]="{ 'is-invalid': submitted && form.title.errors }"
+                            required
+                          />
+                          <span *ngIf="submitted && form.title.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="form.title.errors.required"
+                              >This field is required!</small
+                            >
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="description">Description</label>
+                          <input
+                            type="text"
+                            id="description"
+                            class="form-control"
+                            placeholder="Description"
+                            name="description"
+                            formControlName="description"
+                            [(ngModel)]="currentRow.description"
+                            [ngClass]="{ 'is-invalid': submitted && form.description.errors }"
+                            required
+                          />
+                          <span *ngIf="submitted && form.description.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="form.description.errors.required"
+                              >This field is required!</small
+                            >
+                          </span>
+                        </div>
+                      </div>                 
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="level">Level</label>
+                          <select class="form-control" [(ngModel)]="currentRow.level" name="level" id="level" formControlName="level"
+                          [ngClass]="{ 'is-invalid': submitted && form.level.errors }" required>
+                            <option value="Level 1">Level 1</option>
+                            <option value="Level 2">Level 2</option>
+                            <option value="Level 3">Level 3</option>
+                            <option value="Level 4">Level 4</option>
+                          </select>
+                          <!-- <input
+                            type="text"
+                            id="level"
+                            class="form-control"
+                            placeholder="Description"
+                            name="level"
+                            formControlName="level"
+                            [(ngModel)]="currentRow.level"
+                            [ngClass]="{ 'is-invalid': submitted && form.level.errors }"
+                            required
+                          /> -->
+                          <span *ngIf="submitted && form.level.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="form.level.errors.required"
+                              >This field is required!</small
+                            >
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="grade">Grade</label>
+                          <input
+                            type="text"
+                            id="grade"
+                            class="form-control"
+                            placeholder="Grade"
+                            name="grade"
+                            formControlName="grade"
+                            [(ngModel)]="currentRow.grade"
+                            [ngClass]="{ 'is-invalid': submitted && form.grade.errors }"
+                            required
+                          />
+                          <span *ngIf="submitted && form.grade.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="form.grade.errors.required"
+                              >This field is required!</small
+                            >
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-12 d-flex flex-sm-row flex-column mt-2">
+                        <button
+                          type="submit"
+                          
+                          class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1"
+                          rippleEffect
+                        >
+                          Save Changes
+                        </button>
+                        <button (click)="resetFormWithDefaultValues()" class="btn btn-outline-secondary" rippleEffect>
+                          Reset
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                  <!-- users edit account form ends -->
+                </div>
+                <!-- Account Tab ends -->
+              </ng-template>
+            </li>
+          
+          </ul>
+          <div [ngbNavOutlet]="nav" class="mt-2"></div>
+        </div>
+      </div>
+    </section>
+    <!-- users edit ends -->
+  </div>
+</div>

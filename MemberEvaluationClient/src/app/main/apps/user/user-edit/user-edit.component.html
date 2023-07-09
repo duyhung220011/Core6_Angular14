@@ -1,0 +1,304 @@
+<div class="content-wrapper container-xxl p-0">
+  <div class="content-body">
+    <!-- users edit start -->
+    <section class="app-user-edit">
+      <div class="card">
+        <div class="card-body">
+          <ul ngbNav #nav="ngbNav" class="nav nav-pills">
+            <li ngbNavItem>
+              <a ngbNavLink class="d-flex align-items-center"><i data-feather="user" class="mr-sm-50"></i><span class="d-none d-sm-block">Account</span></a>
+              <ng-template ngbNavContent>
+                <!-- Account Tab starts -->
+                <div class="tab-pane active" id="account" aria-labelledby="account-tab" role="tabpanel">
+                  
+                  <!-- users edit media object ends -->
+                  <!-- users edit account form start -->
+                  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+                    <div class="row">
+                      <div class="col-12">
+                        <h4 class="mb-1">
+                          <i data-feather="info" [size]="16" class="mr-75 font-medium-4"></i>
+                          <span class="align-middle">Account</span>
+                        </h4>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="userId">User ID</label>
+                          <input
+                            class="form-control"
+                            type="text"
+                            id="userId"
+                            name="userId" 
+                            formControlName="userId"
+                            placeholder="User ID"
+                            [(ngModel)]="currentRow.userId"
+                            [ngClass]="{ 'is-invalid': submitted && form.userId.errors }"
+                            required
+                          />
+                          <span *ngIf="submitted && form.userId.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="form.errors.required">This field is required!</small>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6">
+                        <div class="form-group">
+                          <label for="password">Password</label>
+                          <input
+                            class="form-control"
+                            type="password"
+                            id="password"
+                            name="password"
+                            formControlName="password"
+                            placeholder="Password"
+                            [(ngModel)]="currentRow.password"
+                            [ngClass]="{ 'is-invalid': submitted && form.password.errors }"
+                            required
+                          />
+                          <span *ngIf="submitted && form.userName.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="form.password.errors.required">Password is required</small>
+                            <small class="form-text text-danger" *ngIf="form.password.errors.minlength">Password must be at least 6 characters</small>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="confirmPassword">Confirm Password</label>
+                          <input
+                            class="form-control"
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            formControlName="confirmPassword"
+                            placeholder="Re-enter Password"
+                            [ngClass]="{ 'is-invalid': submitted && form.confirmPassword.errors }"
+                            required
+                          />
+                          <span *ngIf="submitted && form.confirmPassword.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="form.confirmPassword.errors.required">Confirm Password is required</small>
+                            <small class="form-text text-danger" *ngIf="form.confirmPassword.errors.mustMatch">Passwords must match</small>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="fullName">Full Name</label>
+                          <input
+                            class="form-control"
+                            type="text"
+                            id="fullName"
+                            name="fullName" 
+                            formControlName="fullName" 
+                            placeholder="Name"
+                            [(ngModel)]="currentRow.fullName"
+                            [ngClass]="{ 'is-invalid': submitted && form.fullName.errors }"
+                            required
+                          />
+                          <span *ngIf="submitted && form.fullName.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="form.fullName.errors.required">This field is required!</small>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="department">Department</label>
+                          <select class="form-control" [(ngModel)]="currentRow.department" 
+                          name="department" id="department" formControlName="department"
+                          [ngClass]="{ 'is-invalid': submitted && form.department.errors }" required>
+                            <option value="DEV 1">DEV 1</option>
+                            <option value="DEV 2">DEV 2</option>
+                            <option value="DEV 3">DEV 3</option>
+                            <option value="DEV 4">DEV 4</option>
+                            <option value="DEV 5">DEV 5</option>
+                          </select>
+                          <!-- <input
+                            class="form-control"
+                            type="text"
+                            id="department"
+                            name="department" 
+                            formControlName="department" 
+                            placeholder="Name"
+                            [(ngModel)]="currentRow.department"
+                            [ngClass]="{ 'is-invalid': submitted && form.department.errors }"
+                            required
+                          /> -->
+                          <span *ngIf="submitted && form.department.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="form.department.errors.required">This field is required!</small>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="email"> Email</label>
+                          <input
+                            class="form-control"
+                            type="email"
+                            id="email"
+                            name="Email" 
+                            formControlName="email" 
+                            placeholder="email"
+                            [(ngModel)]="currentRow.email"
+                            [ngClass]="{ 'is-invalid': submitted && form.email.errors }"
+                            required
+                          />
+                          <span *ngIf="submitted && form.email.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="form.email.errors.required">This field is required!</small>
+                            <small class="form-text text-danger" *ngIf="f.email.errors.email">Email invalidate</small>
+
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="userRole">Role</label>
+                          <select class="form-control" [(ngModel)]="currentRow.userRole" 
+                          name="userRole" id="userRole" formControlName="userRole"
+                          [ngClass]="{ 'is-invalid': submitted && form.userRole.errors }" required>
+                            <option value="User">User</option>
+                            <option value="GM">GM</option>
+                            <option value="Admin">Admin</option>
+                          </select>
+                          <!-- <input
+                            class="form-control"
+                            type="text"
+                            id="department"
+                            name="department" 
+                            formControlName="department" 
+                            placeholder="Name"
+                            [(ngModel)]="currentRow.department"
+                            [ngClass]="{ 'is-invalid': submitted && form.department.errors }"
+                            required
+                          /> -->
+                          <span *ngIf="submitted && form.userRole.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="form.userRole.errors.required">This field is required!</small>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-12 d-flex flex-sm-row flex-column mt-2">
+                        <button type="submit" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1" rippleEffect>
+                          Save Changes
+                        </button>
+                        <button (click)="resetFormWithDefaultValues()" class="btn btn-outline-secondary" rippleEffect>
+                          Reset
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </ng-template>
+            </li>
+          </ul>
+          <div [ngbNavOutlet]="nav" class="mt-2"></div>
+        </div>
+      </div>
+      <div class="card col-12">
+        <div class="row">
+          <div class="card-header">
+            <h4 class="card-title">Evaluate</h4>
+          </div>
+          
+          <!-- <form (ngSubmit)="onClick()" [formGroup]="formReview"> -->
+            <table class="table table-striped table-borderless">
+              <thead class="thead-light" style="border: 0.5px solid red; background-color:#ff9f43 !important;">
+                <tr>
+                  <th>
+                    <div class="custom-control custom-checkbox col-sm-2">
+                      <input type="checkbox" class="custom-control-input" id="admin-read"  />
+                      <label class="custom-control-label" for="admin-read"></label>
+                    </div>
+                  </th>
+                  <!-- <th class="col-md-2" style="border-left: 0.5px solid red;">Date</th> -->
+                  <th class="col-md-3" style="border-left: 0.5px solid red;">Title</th>
+                  <th class="col-md-1" style="border-left: 0.5px solid red;">Grade</th>
+                  <th class="col-md-4" style="border-left: 0.5px solid red;">Reason</th>
+                  <th class="col-md-3" style="border-left: 0.5px solid red;">Comment</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border: 0.5px solid red;  ">
+                  <td >
+                    <div class="form-check form-check-inline mb-1">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="checked" checked />
+                      
+                  </div>
+                  </td>
+                  <td style="border-left: 0.5px solid red;">
+                  <div class="form-group mb-1">
+                    <select 
+                      class="form-control"  
+                      
+                      [ngClass]="{ 'is-invalid': submitted && f.title.errors }"
+                      required  >
+                      <option value="Level 1">Level 1</option>
+                      <option value="Level 2">Level 2</option>
+                      <option value="Level 3">Level 3</option>
+                      <option value="Level 4">Level 4</option>
+                    </select>
+                    <span *ngIf="submitted && f.title.errors" class="invalid-form">
+                      <small class="form-text text-danger" *ngIf="f.title.errors.required"> Level is required</small>
+                    </span>
+                    </div>
+                  </td>
+                  <td style="border-left: 0.5px solid red;">
+                    <div class="form-group mb-1">
+                      <input 
+                        type="text" 
+                        class="form-control" 
+                        
+                        [ngClass]="{ 'is-invalid': submitted && f.grade.errors }"
+                        required  />
+                      <span *ngIf="submitted && f.grade.errors" class="invalid-form">
+                        <small class="form-text text-danger" *ngIf="f.grade.errors.required"> Grade is required</small>
+                         
+                      </span>  
+                    </div>
+                  </td>
+                  <td style="border-left: 0.5px solid red;">
+                    <div class="form-group">
+                      <textarea 
+                      class="form-control" 
+                      
+                      [ngClass]="{ 'is-invalid': submitted && f.reason.errors }"
+                      required ></textarea>
+                      <span *ngIf="submitted && f.reason.errors" class="invalid-form">
+                        <small class="form-text text-danger" *ngIf="f.reason.errors.required"> reason is required</small>
+                       
+                      </span>
+                    </div>
+                  </td>
+                  <td style="border-left: 0.5px solid red;">
+                    <div class="form-group" >
+                      <textarea 
+                      class="form-control" 
+                      
+                      [ngClass]="{ 'is-invalid': submitted && f.comment.errors }"
+                      required ></textarea>
+                      <span *ngIf="submitted && f.comment.errors" class="invalid-form">
+                        <small class="form-text text-danger" *ngIf="f.comment.errors.required"> comment is required</small>
+                       
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                
+              </tbody>
+            </table>
+          <!-- </form> -->
+          
+        </div>
+        <div class="col-12 d-flex flex-sm-row flex-column mt-2">
+          <button type="submit" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1" rippleEffect>
+            Save 
+          </button>
+          <button  class="btn btn-outline-secondary" rippleEffect>
+            Delete
+          </button>
+          <button  class="btn btn-outline-danger ml-1" rippleEffect>
+            New
+          </button>
+        </div>
+        
+      </div>
+    </section>
+    <!-- users edit ends -->
+  </div>
+</div>

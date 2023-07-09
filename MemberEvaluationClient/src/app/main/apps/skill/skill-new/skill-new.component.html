@@ -1,0 +1,147 @@
+<div class="content-wrapper container-xxl p-0">
+  <div class="content-body">
+    <!-- users edit start -->
+    <section class="app-user-new">
+      <div class="card">
+        <div class="card-body">
+          <ul ngbNav #nav="ngbNav" class="nav nav-pills">
+            <li ngbNavItem>
+              <a ngbNavLink class="d-flex align-items-center">
+                <i data-feather="user" class="mr-sm-50"></i>
+                <span class="d-none d-sm-block">SKILL</span>
+              </a>
+              <ng-template ngbNavContent>
+                <!-- Account Tab starts -->
+                <div class="tab-pane active" id="account" aria-labelledby="account-tab" role="tabpanel">
+                  
+                  <!-- users edit account form start -->
+                  <form class="form-validate" [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="col-12">
+                      <h4 class="mb-1">
+                        <i data-feather="info" [size]="16" class="mr-75 font-medium-4"></i>
+                        <span class="align-middle">Skill</span>
+                      </h4>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-4 col-md-6">
+                        <div class="form-group">
+                          <label>SkillId</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Skill"
+                            formControlName="skillId"
+                            [ngClass]="{ 'is-invalid': submitted && f.skillId.errors }"
+                            required
+                          />
+                          <span *ngIf="submitted && f.skillId.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="f.skillId.errors.required">This field is required!</small>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6">
+                        <div class="form-group">
+                          <label>Title</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Title"
+                            formControlName="title"
+                            [ngClass]="{ 'is-invalid': submitted && f.title.errors }"
+                            required
+                          />
+                          <span *ngIf="submitted && f.title.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="f.title.errors.required">Title is required</small>
+                           
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6">
+                        <div class="form-group">
+                          <label>Description</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Description"
+                            formControlName="description"
+                            [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
+                            required
+                          />
+                          <span *ngIf="submitted && f.description.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="f.description.errors.required"> Description is required</small>
+                           
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6">
+                        <div class="form-group">
+                          <label>Level</label>
+                          <select type=""
+                          class="form-control"
+                          placeholder="Level"
+                          formControlName="level"
+                          [ngClass]="{ 'is-invalid': submitted && f.Level.errors }"
+                          required>
+                            <option value="Level 1">Level 1</option>
+                            <option value="Level 2">Level 2</option>
+                            <option value="Level 3">Level 3</option>
+                            <option value="Level 4">Level 4</option>
+                          </select>
+                          <!-- <input
+                            type=""
+                            class="form-control"
+                            placeholder="Level"
+                            formControlName="level"
+                            [ngClass]="{ 'is-invalid': submitted && f.Level.errors }"
+                            required
+                          /> -->
+                          <span *ngIf="submitted && f.level.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="f.level.errors.required"> Level is required</small>
+                           
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6">
+                        <div class="form-group">
+                          <label>Grade</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Grade"
+                            formControlName="grade"
+                            [ngClass]="{ 'is-invalid': submitted && f.grade.errors }"
+                            required
+                          />
+                          <span *ngIf="submitted && f.grade.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="f.grade.errors.required"> Grade is required</small>
+                           
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="col-12 d-flex flex-sm-row flex-column mt-2">
+                        <button type="submit" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1" rippleEffect>
+                          Save Changes
+                        </button>
+                        <button (click)="resetFormWithDefaultValues()" class="btn btn-outline-secondary" rippleEffect>
+                          Reset
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                  <!-- users edit account form ends -->
+                </div>
+                <!-- Account Tab ends -->
+
+               
+              </ng-template>
+            </li>
+           
+          </ul>
+          <div [ngbNavOutlet]="nav" class="mt-2"></div>
+        </div>
+      </div>
+    </section>
+    <!-- users edit ends -->
+  </div>
+</div>

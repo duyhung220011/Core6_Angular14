@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>E:\wwwroot\AngularHosting\APISV</_PublishTargetUrl>
+    <History>True|2022-12-28T03:40:02.5644708Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="WebApiDatabase">
+      <Value>Server=10.128.12.126,1433%3bDatabase=member_evaluation%3bUser Id=devteam1%3bPassword=P%40ssword%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

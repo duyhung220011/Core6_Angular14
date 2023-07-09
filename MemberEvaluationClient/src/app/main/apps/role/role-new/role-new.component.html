@@ -1,0 +1,180 @@
+<div class="content-wrapper container-xxl p-0">
+  <div class="content-body">
+    <!-- users edit start -->
+    <section class="app-user-new">
+      <div class="card">
+        <div class="card-body">
+          <ul ngbNav #nav="ngbNav" class="nav nav-pills">
+            <li ngbNavItem>
+              <a ngbNavLink class="d-flex align-items-center">
+                <i data-feather="user" class="mr-sm-50"></i>
+                <span class="d-none d-sm-block">Role</span>
+              </a>
+              <ng-template ngbNavContent>
+                <!-- Account Tab starts -->
+                <div class="tab-pane active" id="account" aria-labelledby="account-tab" role="tabpanel">
+                  
+                  <!-- users edit account form start -->
+                  <form class="form-validate" [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="col-12">
+                      <h4 class="mb-1">
+                        <i data-feather="info" [size]="16" class="mr-75 font-medium-4"></i>
+                        <span class="align-middle">Role</span>
+                      </h4>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-4 col-md-6">
+                        <div class="form-group">
+                          <label>RoleID</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="ID"
+                            formControlName="roleId"
+                            [ngClass]="{ 'is-invalid': submitted && f.roleId.errors }"
+                            required
+                          />
+                          <span *ngIf="submitted && f.roleName.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="f.roleName.errors.required">RoleID is required!</small>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6">
+                        <div class="form-group">
+                          <label>RoleName</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="RoleName"
+                            formControlName="roleName"
+                            [ngClass]="{ 'is-invalid': submitted && f.roleName.errors }"
+                            required
+                          />
+                          <span *ngIf="submitted && f.roleId.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="f.roleName.errors.required">RoleName is required</small>
+                            
+                          </span>
+                        </div>
+                      </div>
+                      <!-- <div class="col-lg-4 col-md-6">
+                        <div class="form-group">
+                          <label>Confirm Password</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Re-enter Password"
+                            formControlName="confirmPassword"
+                            [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }"
+                            required
+                          />
+                          <span *ngIf="submitted && f.confirmPassword.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="f.confirmPassword.errors.required">Confirm Password is required</small>
+                            <small class="form-text text-danger" *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</small>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <h4 class="mb-1 mt-2">
+                          <i data-feather="user" [size]="16" class="mr-75 font-medium-4"></i>
+                          <span class="align-middle">Personal Information</span>
+                        </h4>
+                      </div>
+                      <div class="col-lg-4 col-md-6">
+                        <div class="form-group">
+                          <label>Title</label>
+                          <select class="form-control" formControlName="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+                            <option value="Mr" selected>Mr</option>
+                            <option value="Mrs">Mrs</option>
+                          </select>
+                          <span *ngIf="submitted && f.title.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="f.title.errors.required">Title is required!</small>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6">
+                        <div class="form-group">
+                          <label>First Name</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Name"
+                            formControlName="firstName"
+                            [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+                            required
+                          />
+                          <span *ngIf="submitted && f.firstName.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="f.firstName.errors.required">First Name is required!</small>
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-4 col-md-6">
+                        <div class="form-group">
+                          <label>Last Name</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            formControlName="lastName"
+                            placeholder="Last name"
+                            [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+                          />
+                          <span *ngIf="submitted && f.lastName.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="f.lastName.errors.required">Last Name is required!</small>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6">
+                        <div class="form-group">
+                          <label>Role</label>
+                          <select class="form-control" formControlName="role" [ngClass]="{ 'is-invalid': submitted && f.role.errors }">
+                            <option value="User" selected>User</option>
+                            <option value="Admin">Admin</option>
+                          </select>
+                          <span *ngIf="submitted && f.role.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="f.role.errors.required">Role is required!</small>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6">
+                        <div class="form-group">
+                          <label>E-mail</label>
+                          <input
+                            type="email"
+                            class="form-control"
+                            placeholder="Email"
+                            formControlName="email"
+                            [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                            required
+                          />
+                          <span *ngIf="submitted && f.email.errors" class="invalid-form">
+                            <small class="form-text text-danger" *ngIf="f.email.errors.required">Email is required!</small>
+                            <small class="form-text text-danger" *ngIf="f.email.errors.email">Email must be a valid email address!</small>
+                          </span>
+                        </div>
+                      </div> -->
+                      <div class="col-12 d-flex flex-sm-row flex-column mt-2">
+                        <button type="submit" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1" rippleEffect>
+                          Save Changes
+                        </button>
+                        <button (click)="resetFormWithDefaultValues()" class="btn btn-outline-secondary" rippleEffect>
+                          Reset
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                  <!-- users edit account form ends -->
+                </div>
+                <!-- Account Tab ends -->
+
+              
+              </ng-template>
+            </li>
+           
+          </ul>
+          <div [ngbNavOutlet]="nav" class="mt-2"></div>
+        </div>
+      </div>
+    </section>
+    <!-- users edit ends -->
+  </div>
+</div>
